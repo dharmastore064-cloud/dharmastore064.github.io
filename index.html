@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DHSTORE - Kuota XL & AXIS</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#f2f5fb;
+}
+header{
+    background:linear-gradient(135deg,#1e5eff,#4f8bff);
+    color:white;
+    text-align:center;
+    padding:30px 15px;
+}
+.tabs{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin:20px;
+}
+.tabs button{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    background:#ddd;
+}
+.tabs button.active{
+    background:#1e5eff;
+    color:white;
+}
+.container{
+    padding:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+.card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+.card h2{
+    margin-top:0;
+    color:#1e5eff;
+}
+.harga{
+    font-size:20px;
+    font-weight:bold;
+    margin:10px 0;
+}
+.area{
+    font-size:14px;
+    margin:5px 0;
+}
+.order{
+    margin-top:15px;
+    width:100%;
+    padding:10px;
+    background:#25d366;
+    border:none;
+    border-radius:8px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+.hidden{ display:none; }
+footer{
+    text-align:center;
+    padding:20px;
+    font-size:13px;
+    color:#666;
+}
+/* Smooth transition */
+body, .card, header, .tabs button, footer {
+    transition: all 0.3s ease-in-out;
+}
+
+/* DARK MODE */
+body.dark{
+    background:#0f172a;
+    color:#f1f5f9;
+}
+
+body.dark header{
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+
+body.dark .card{
+    background:#1e293b;
+    box-shadow:0 10px 25px rgba(0,0,0,0.6);
+}
+
+body.dark .tabs button{
+    background:#334155;
+    color:#fff;
+}
+
+body.dark .tabs button.active{
+    background:#3b82f6;
+}
+
+body.dark footer{
+    color:#94a3b8;
+}
+
+/* Premium Toggle Button */
+#darkBtn{
+    padding:8px 18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:bold;
+    background:linear-gradient(135deg,#111,#333);
+    color:white;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+#darkBtn:hover{
+    transform:scale(1.05);
+}    
+</style>
+</head>
+
+<body>
+
+<header>
+<div style="text-align:center; margin-top:-15px;">
+    <button onclick="toggleDarkMode()" id="darkBtn">
+        🌙 Mode Gelap
+    </button>
+</div>    
+<h1>KUOTA INTERNET XL & AXIS</h1>
+<p>DHSTORE by dharma</p>
+</header>
+
+<div class="tabs">
+<button id="btnV1" class="active" onclick="showV1()">AKRAB V1</button>
+<button id="btnV2" onclick="showV2()">AKRAB V2</button>
+</div>
+
+<!-- ================= AKRAB V1 ================= -->
+<div id="v1" class="container">
+
+<!-- SUPER MINI -->
+<div class="card">
+<h2>SUPER MINI</h2>
+<div class="harga">Rp 45.000</div>
+<div class="area">Area 1: 13–15 GB</div>
+<div class="area">Area 2: 15–17 GB</div>
+<div class="area">Area 3: 20–22 GB</div>
+<div class="area">Area 4: 30–32 GB</div>
+<div class="area"><strong>Benefit:</strong></div>
+<div class="area">✔ Kuota Bersama 0 GB</div>
+<div class="area">✔ Bonus Kuota My Rwds</div>
+<div class="area">✔ Kuota Nasional</div>
+<div class="area">✔ Kuota Lokal Sesuai Area</div>
+<button class="order" onclick="order('SUPER MINI V1')">Order</button>
+</div>
+
+<!-- MINI -->
+<div class="card">
+<h2>MINI</h2>
+<div class="harga">Rp 60.000</div>
+<div class="area">Area 1: 32–34 GB</div>
+<div class="area">Area 2: 34–36 GB</div>
+<div class="area">Area 3: 39–41 GB</div>
+<div class="area">Area 4: 49–51 GB</div>
+<div class="area"><strong>Benefit:</strong></div>
+<div class="area">✔ Kuota Bersama 25 GB</div>
+<div class="area">✔ Bonus Kuota My Rwds</div>
+<div class="area">✔ Kuota Nasional</div>
+<div class="area">✔ Kuota Lokal Sesuai Area</div>
+<button class="order" onclick="order('MINI V1')">Order</button>
+</div>
+
+<!-- BIG -->
+<div class="card">
+<h2>BIG</h2>
+<div class="harga">Rp 65.000</div>
+<div class="area">Area 1: 38–40 GB</div>
+<div class="area">Area 2: 40–42 GB</div>
+<div class="area">Area 3: 45–47 GB</div>
+<div class="area">Area 4: 55–57 GB</div>
+<div class="area"><strong>Benefit:</strong></div>
+<div class="area">✔ Kuota Bersama 20 GB</div>
+<div class="area">✔ Bonus Kuota My Rwds</div>
+<div class="area">✔ Kuota Nasional</div>
+<div class="area">✔ Kuota Lokal Sesuai Area</div>
+<button class="order" onclick="order('BIG V1')">Order</button>
+</div>
+
+<!-- JUMBO V2 -->
+<div class="card">
+<h2>JUMBO V2</h2>
+<div class="harga">Rp 75.000</div>
+<div class="area">Area 1: 50–53 GB</div>
+<div class="area">Area 2: 52–55 GB</div>
+<div class="area">Area 3: 57–60 GB</div>
+<div class="area">Area 4: 67–70 GB</div>
+<div class="area"><strong>Benefit:</strong></div>
+<div class="area">✔ Kuota Bersama 37,5 GB</div>
+<div class="area">✔ Bonus Kuota My Rwds</div>
+<div class="area">✔ Kuota Nasional</div>
+<div class="area">✔ Kuota Lokal Sesuai Area</div>
+<button class="order" onclick="order('JUMBO V2 V1')">Order</button>
+</div>
+
+<!-- MEGABIG -->
+<div class="card">
+<h2>MEGABIG</h2>
+<div class="harga">Rp 105.000</div>
+<div class="area">Area 1: 87–90 GB</div>
+<div class="area">Area 2: 89–92 GB</div>
+<div class="area">Area 3: 94–97 GB</div>
+<div class="area">Area 4: 104–107 GB</div>
+<div class="area"><strong>Benefit:</strong></div>
+<div class="area">✔ Kuota Bersama 75 GB</div>
+<div class="area">✔ Bonus Kuota My Rwds</div>
+<div class="area">✔ Kuota Nasional</div>
+<div class="area">✔ Kuota Lokal Sesuai Area</div>
+<button class="order" onclick="order('MEGABIG V1')">Order</button>
+</div>
+
+</div>
+
+<!-- ================= AKRAB V2 ================= -->
+<div id="v2" class="container hidden">
+
+<div class="card"><h2>XDA13 (SUPER MINI)</h2><div class="harga">Rp 47.000</div>
+<div class="area">Area 1: 13 GB</div><div class="area">Area 2: 15 GB</div>
+<div class="area">Area 3: 20 GB</div><div class="area">Area 4: 30 GB</div>
+<button class="order" onclick="order('XDA13 V2')">Order</button></div>
+
+<div class="card"><h2>XDA19</h2><div class="harga">Rp 55.000</div>
+<div class="area">Area 1: 19 GB</div><div class="area">Area 2: 21 GB</div>
+<div class="area">Area 3: 26 GB</div><div class="area">Area 4: 36 GB</div>
+<button class="order" onclick="order('XDA19 V2')">Order</button></div>
+
+<div class="card"><h2>XDA25</h2><div class="harga">Rp 60.000</div>
+<div class="area">Area 1: 25 GB</div><div class="area">Area 2: 27 GB</div>
+<div class="area">Area 3: 32 GB</div><div class="area">Area 4: 42 GB</div>
+<button class="order" onclick="order('XDA25 V2')">Order</button></div>
+
+<div class="card"><h2>XDA27</h2><div class="harga">Rp 85.000</div>
+<div class="area">Area 1: 26 GB</div><div class="area">Area 2: 30 GB</div>
+<div class="area">Area 3: 44 GB</div><div class="area">Area 4: 83 GB</div>
+<button class="order" onclick="order('XDA27 V2')">Order</button></div>    
+    
+<div class="card"><h2>XDA31 (MINI)</h2><div class="harga">Rp 65.000</div>
+<div class="area">Area 1: 31 GB</div><div class="area">Area 2: 33 GB</div>
+<div class="area">Area 3: 38 GB</div><div class="area">Area 4: 48 GB</div>
+<button class="order" onclick="order('XDA31 V2')">Order</button></div>
+
+<div class="card"><h2>XDA34</h2><div class="harga">Rp 80.000</div>
+<div class="area">Area 1: 33 GB</div><div class="area">Area 2: 36 GB</div>
+<div class="area">Area 3: 47 GB</div><div class="area">Area 4: 71 GB</div>
+<button class="order" onclick="order('XDA34 V2')">Order</button></div>    
+    
+<div class="card"><h2>XDA38 (BIG)</h2><div class="harga">Rp 70.000</div>
+<div class="area">Area 1: 38 GB</div><div class="area">Area 2: 40 GB</div>
+<div class="area">Area 3: 45 GB</div><div class="area">Area 4: 55 GB</div>
+<button class="order" onclick="order('XDA38 V2')">Order</button></div>
+
+<div class="card"><h2>XDA50 (JUMBOV2)</h2><div class="harga">Rp 75.000</div>
+<div class="area">Area 1: 50 GB</div><div class="area">Area 2: 52 GB</div>
+<div class="area">Area 3: 57 GB</div><div class="area">Area 4: 67 GB</div>
+<button class="order" onclick="order('XDA50 V2')">Order</button></div>    
+    
+<div class="card"><h2>XDA63</h2><div class="harga">Rp 90.000</div>
+<div class="area">Area 1: 63 GB</div><div class="area">Area 2: 65 GB</div>
+<div class="area">Area 3: 70 GB</div><div class="area">Area 4: 80 GB</div>
+<button class="order" onclick="order('XDA63 V2')">Order</button></div>
+
+<div class="card"><h2>XDA64</h2><div class="harga">Rp 115.000</div>
+<div class="area">Area 1: 65 GB</div><div class="area">Area 2: 70 GB</div>
+<div class="area">Area 3: 83 GB</div><div class="area">Area 4: 123 GB</div>
+<button class="order" onclick="order('XDA64 V2')">Order</button></div>    
+    
+<div class="card"><h2>XDA76</h2><div class="harga">Rp 95.000</div>
+<div class="area">Area 1: 76 GB</div><div class="area">Area 2: 78 GB</div>
+<div class="area">Area 3: 83 GB</div><div class="area">Area 4: 93 GB</div>
+<button class="order" onclick="order('XDA76 V2')">Order</button></div>    
+    
+<div class="card"><h2>XDA88 (MEGABIG)</h2><div class="harga">Rp 105.000</div>
+<div class="area">Area 1: 88 GB</div><div class="area">Area 2: 90 GB</div>
+<div class="area">Area 3: 95 GB</div><div class="area">Area 4: 105 GB</div>
+<button class="order" onclick="order('XDA88 V2')">Order</button></div>
+
+</div>
+
+<footer>© 2026 DHSTORE</footer>
+
+<script>
+function showV1(){
+document.getElementById('v1').classList.remove('hidden');
+document.getElementById('v2').classList.add('hidden');
+document.getElementById('btnV1').classList.add('active');
+document.getElementById('btnV2').classList.remove('active');
+}
+function showV2(){
+document.getElementById('v2').classList.remove('hidden');
+document.getElementById('v1').classList.add('hidden');
+document.getElementById('btnV2').classList.add('active');
+document.getElementById('btnV1').classList.remove('active');
+}
+function order(produk){
+    var nomor = "6281532855156";
+    var pesan = "Halo, saya mau order paket " + produk + " dari DHSTORE 🌙";
+
+    var url = "https://api.whatsapp.com/send?phone=" + nomor + "&text=" + encodeURIComponent(pesan);
+
+    window.location.href = url;
+
+}
+function toggleDarkMode(){
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("theme","dark");
+        document.getElementById("darkBtn").innerHTML="☀ Mode Terang";
+    }else{
+        localStorage.setItem("theme","light");
+        document.getElementById("darkBtn").innerHTML="🌙 Mode Gelap";
+    }
+}
+
+// AUTO DETECT MODE HP
+window.onload = function(){
+    const savedTheme = localStorage.getItem("theme");
+
+    if(savedTheme){
+        if(savedTheme === "dark"){
+            document.body.classList.add("dark");
+            document.getElementById("darkBtn").innerHTML="☀ Mode Terang";
+        }
+    }else{
+        if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+            document.body.classList.add("dark");
+            document.getElementById("darkBtn").innerHTML="☀ Mode Terang";
+        }
+    }
+}    
+</script>
+
+</body>
+</html>
