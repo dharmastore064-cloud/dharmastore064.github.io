@@ -124,6 +124,64 @@ body.dark footer{
 }
 #darkBtn:hover{
     transform:scale(1.05);
+}
+.cekarea-btn{
+background:linear-gradient(135deg,#1e3caa,#3f7cff);
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.cekarea-btn:hover{
+transform:scale(1.05);
+}
+
+.cekarea-modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.cekarea-content{
+width:95%;
+max-width:1100px;
+background:white;
+border-radius:20px;
+overflow:hidden;
+position:relative;
+animation:fadeIn 0.3s ease;
+}
+
+.cekarea-content iframe{
+width:100%;
+height:80vh;
+border:none;
+}
+
+.close-btn{
+position:absolute;
+top:10px;
+right:15px;
+font-size:22px;
+cursor:pointer;
+color:#333;
+}
+
+@keyframes fadeIn{
+from{transform:scale(0.8);opacity:0;}
+to{transform:scale(1);opacity:1;}
 }    
 </style>
 </head>
@@ -143,6 +201,16 @@ body.dark footer{
 <div class="tabs">
 <button id="btnV1" class="active" onclick="showV1()">AKRAB V1</button>
 <button id="btnV2" onclick="showV2()">AKRAB V2</button>
+<button class="cekarea-btn" onclick="openCekArea()">
+CEK AREA XL
+</button>
+
+<div class="cekarea-modal" id="cekareaModal">
+  <div class="cekarea-content">
+    <span class="close-btn" onclick="closeCekArea()">✕</span>
+    <iframe src="https://cekareaxl.vercel.app/"></iframe>
+  </div>
+</div>
 </div>
 
 <!-- ================= AKRAB V1 ================= -->
@@ -348,6 +416,15 @@ window.onload = function(){
     }
 }    
 </script>
+    
+<script>
+function openCekArea(){
+document.getElementById("cekareaModal").style.display="flex";
+}
 
+function closeCekArea(){
+document.getElementById("cekareaModal").style.display="none";
+}
+</script>
 </body>
 </html>
